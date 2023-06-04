@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Gltf, ScrollControls, useScroll } from "@react-three/drei";
+import { Gltf, ScrollControls, useScroll, PresentationControls, Environment, EnvironmentMap } from "@react-three/drei";
 import { getProject, val } from "@theatre/core";
 import theatreState from "./theatreState.json";
 
@@ -45,7 +45,21 @@ function Scene() {
       <fog attach="fog" color={bgColor} near={-4} far={10} />
       <ambientLight intensity={0.5} />
       <directionalLight position={[-5, 5, -5]} intensity={1.5} />
-      <Gltf src="/environment.glb" castShadow receiveShadow />
+      
+      <PresentationControls
+      enabled={true} // the controls can be disabled by setting this to false
+      global={false} // Spin globally or by dragging the model
+      cursor={true} // Whether to toggle cursor style on drag
+      snap={true} // Snap-back to center (can also be a spring config)
+      speed={0.1} // Speed factor
+      zoom={1} // Zoom factor when half the polar-max is reached
+      rotation={[0, 0, 0]} // Default rotation
+      polar={[0, Math.PI / 2]} // Vertical limits
+      azimuth={[-Infinity, Infinity]} // Horizontal limits
+      config={{ mass: 1, tension: 170, friction: 26 }} // Spring config
+      >
+    <Environment blur={1} background={true} preset="dawn" />  <Gltf src="/environment.glb" castShadow receiveShadow />
+      </PresentationControls>
       <PerspectiveCamera
         theatreKey="Camera"
         makeDefault

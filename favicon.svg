@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   sodipodi:docname="favicon.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <rect
+       x="8.9491525"
+       y="12.813559"
+       width="39.050848"
+       height="35.389831"
+       id="rect224" />
+    <rect
+       x="8.9491525"
+       y="12.813559"
+       width="39.050848"
+       height="35.389831"
+       id="rect282" />
+    <rect
+       x="8.9491525"
+       y="12.813559"
+       width="39.050848"
+       height="35.389831"
+       id="rect288" />
+    <rect
+       x="8.9491525"
+       y="12.813559"
+       width="39.050848"
+       height="35.389831"
+       id="rect294" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="-8.440678"
+     inkscape:cy="24"
+     inkscape:window-width="2560"
+     inkscape:window-height="1529"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g8">
+    <text
+       xml:space="preserve"
+       id="text222"
+       style="white-space:pre;shape-inside:url(#rect224);shape-padding:0.20339;fill:#000000"
+       transform="matrix(1.373761,1.373761,-1.3201422,1.3201422,32.726888,-32.918006)"><tspan
+         x="9.1523438"
+         y="23.93608"
+         id="tspan1162"><tspan
+           style="font-family:zenhand;-inkscape-font-specification:zenhand"
+           id="tspan1160">ze</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text280"
+       style="white-space:pre;shape-inside:url(#rect282);shape-padding:0.20339;fill:#000000"
+       transform="matrix(-1.373761,1.373761,-1.3201422,-1.3201422,81.483737,33.759262)"><tspan
+         x="9.1523438"
+         y="23.93608"
+         id="tspan1166"><tspan
+           style="font-family:zenhand;-inkscape-font-specification:zenhand"
+           id="tspan1164">ze</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text286"
+       style="white-space:pre;shape-inside:url(#rect288);shape-padding:0.20339;fill:#000000"
+       transform="matrix(-1.373761,-1.373761,1.3201422,-1.3201422,15.381742,81.6532)"><tspan
+         x="9.1523438"
+         y="23.93608"
+         id="tspan1170"><tspan
+           style="font-family:zenhand;-inkscape-font-specification:zenhand"
+           id="tspan1168">ze</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text292"
+       style="white-space:pre;shape-inside:url(#rect294);shape-padding:0.20339;fill:#000000"
+       transform="matrix(1.373761,-1.373761,1.3201422,1.3201422,-33.375107,14.688294)"><tspan
+         x="9.1523438"
+         y="23.93608"
+         id="tspan1174"><tspan
+           style="font-family:zenhand;-inkscape-font-specification:zenhand"
+           id="tspan1172">ze</tspan></tspan></text>
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-opacity:1"
+       id="path1033"
+       cx="34.372581"
+       cy="0.28763571"
+       rx="21.864408"
+       ry="21.864407"
+       transform="rotate(45)" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-opacity:1"
+       id="path1140"
+       cx="24"
+       cy="24.40678"
+       r="5.2881355" />
+  </g>
+</svg>

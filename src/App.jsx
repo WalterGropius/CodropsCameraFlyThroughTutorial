@@ -58,7 +58,7 @@ function Scene() {
       azimuth={[-Infinity, Infinity]} // Horizontal limits
       config={{ mass: 1, tension: 170, friction: 26 }} // Spring config
       >
-    <Environment blur={1} background={true} preset="dawn" />  <Gltf src="/environment.glb" castShadow receiveShadow />
+    <Environment blur={0.4} background={true} preset="dawn" />  <Gltf src="/environment.glb" castShadow receiveShadow />
       </PresentationControls>
       <PerspectiveCamera
         theatreKey="Camera"

@@ -393,6 +393,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@pmndrs/assets@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pmndrs/assets/-/assets-1.0.0.tgz#3da9d77324047f3204bbb175466f837a6aeb88f0"
+  integrity sha512-lRc+YKV3DQ3HtUbEQ1qphzlaEswMAer19kfiQMzYxx41TBv5oja6oSms9e9LnmV4oNu5dnmX4AoyjSuXSvYZFQ==
+
 "@react-spring/animated@~9.6.1":
   version "9.6.1"
   resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.6.1.tgz#ccc626d847cbe346f5f8815d0928183c647eb425"

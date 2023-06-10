@@ -48,10 +48,9 @@ function Scene() {
   return (
     <>
       <color attach="background" args={[bgColor]} />
-      <fog attach="fog" color={bgColor} near={-4} far={10} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[-5, 5, -5]} intensity={1.5} />
-      
+      <fog attach="fog" color={bgColor} near={-10} far={3} />
+      <ambientLight intensity={0.1} />
+    
       <PresentationControls
       enabled={true} // the controls can be disabled by setting this to false
       global={false} // Spin globally or by dragging the model

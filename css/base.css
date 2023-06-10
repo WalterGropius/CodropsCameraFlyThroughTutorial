@@ -57,12 +57,59 @@ body {
   }
 }
 
+a {
+  text-decoration: none;
+  color: var(--color-link);
+  outline: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  outline: none;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+  /* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+  outline: none;
+  background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+  background: transparent;
+}
+
+a:focus-visible {
+  /* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+  outline: 2px solid red;
+  background: transparent;
+}
+
+.unbutton {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.unbutton:focus {
+  outline: none;
+}
 
 
 .frame {
- 
-
   z-index: 10;
+  /*animation: slideIn 1s 1s cubic-bezier(0.680, -0.550, 0.265, 1.550) forwards,slideBack 2s 7s forwards;*/
+  transform: translateY(-100%);
+  /* transition: transform 0.5s; */
   position: fixed;
   width: 100%;
   display: flex;
@@ -72,9 +119,27 @@ body {
   background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
   backdrop-filter: blur(2px); /* Blur effect */
   padding: 10px 20px;
-  font-size: 42px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
 }
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideBack {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
 
 
 .frame__title {
@@ -85,7 +150,6 @@ body {
 .frame__title-main {
   font-size: 42px;
 }
-
 
 
 .link-menu {

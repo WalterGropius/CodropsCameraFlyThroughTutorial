@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Gltf, ScrollControls, useScroll, PresentationControls, Environment, EnvironmentMap } from "@react-three/drei";
+import { Gltf, ScrollControls, useScroll, PresentationControls, Environment, EnvironmentMap, Loader } from "@react-three/drei";
 import { getProject, val } from "@theatre/core";
 import theatreState from "./theatreState.json";
 
@@ -28,14 +28,20 @@ export default function App() {
 function Scene() {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
-
+  let lastScrollOffset = 0;
   // our callback will run on every animation frame
   useFrame(() => {
-    // the length of our sequence
-    const sequenceLength = val(sheet.sequence.pointer.length);
-    // update the "position" of the playhead in the sequence, as a fraction of its whole length
-    sheet.sequence.position = scroll.offset * sequenceLength;
-  });
+    if (lastScrollOffset !== scroll.offset) {
+      // the length of our sequence
+      const sequenceLength = val(sheet.sequence.pointer.length);
+      // update the "position" of the playhead in the sequence, as a fraction of its whole length
+      sheet.sequence.position = scroll.offset * sequenceLength;
+      
+      const event = new CustomEvent('scrollChanged', { detail: scroll.offset });
+      document.dispatchEvent(event);
+
+      lastScrollOffset = scroll.offset;
+    }});
 
   const bgColor = "#84a4f4";
 
@@ -60,6 +66,7 @@ function Scene() {
       >
     <Gltf src="/environment.glb" castShadow receiveShadow />
       </PresentationControls>
+      
       <PerspectiveCamera
         theatreKey="Camera"
         makeDefault

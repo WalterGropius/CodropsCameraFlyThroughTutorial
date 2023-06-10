@@ -34,12 +34,12 @@
   </head>
   <body class="demo-1">
     <main>
-      <div class="frame">
+      <div class="frame" id="frame">
           <div class="frame__title-main">ZENBAUHAUS</div>
           <ul class="link-menu">
-            <li><a href="hereismyreel">Reel</a></li>
-            <li><a href="myartportfolio">Art </a></li>
-            <li><a href="notnio">Works </a></li>
+            <li><a href="https://zenbau.haus/reel.mp4">Reel</a></li>
+            <li><a href="https://zenbau.haus/Elias_Bauer_portfolio.pdf">Art </a></li>
+            <li><a href="https://illustrious-alyssum-b88.notion.site/Portfolio-selected-works-2016-23-349c9b01dd2d4416847b747a14b908c6">Works </a></li>
             <li><a href="http://instagram.com/tra5her_sk8">IG </a></li>
             <li><a href="http://facebook.com/ezbawa">FB </a></li>
             
@@ -49,5 +49,68 @@
       <div id="root"></div>
     </main>
   <script type="module" src="/src/main.jsx"></script>
+  
+  <script>
+    window.onscroll = function() {
+      console.log('Current scroll from the top: ' + window.scrollY);
+    };
+
+    window.onload = function() {
+      const frame = document.getElementById('frame');
+      let hovering = false;
+      let scrollDetail;
+
+      // Slide down the frame after 2 seconds
+      setTimeout(() => {
+        frame.style.transition = "transform 1s cubic-bezier(0.680, -0.550, 0.265, 1.550)";
+        frame.style.transform = 'translateY(0)';
+      }, 2000);
+
+      // Slide up halfway after 5 more seconds, but only if not hovering
+      setTimeout(() => {
+        if (!hovering && scrollDetail > 0.1) {
+          frame.style.transition = "transform 2s";
+          frame.style.transform = 'translateY(-70%)';
+        }
+      }, 7000);
+
+      frame.onmouseover = function() {
+        hovering = true;
+        frame.style.transition = "transform 0.5s";
+        frame.style.transform = 'translateY(0)';
+      };
+
+      frame.onmouseout = function() {
+        hovering = false;
+        // Wait half a second before sliding back
+        setTimeout(() => {
+          if (!hovering && scrollDetail > 0.1) {
+            frame.style.transition = "transform 2s";
+            frame.style.transform = 'translateY(-70%)';
+          }
+        }, 1000); // delay is half a second
+      };
+
+      document.addEventListener('scrollChanged', function(e) {
+        console.log('Scroll position from ScrollControls: ' + e.detail);
+        scrollDetail = e.detail;
+
+        // Call your custom scroll handling function here if needed
+      });
+
+      setInterval(() => {
+        if (!hovering) {
+          if (scrollDetail > 0.1) {
+            frame.style.transition = "transform 2s";
+            frame.style.transform = 'translateY(-70%)';
+          } else {
+            frame.style.transition = "transform 2s";
+            frame.style.transform = 'translateY(0)';
+          }
+        }
+      }, 1000); // Check every second
+    };
+  </script>
+
   </body>
 </html>

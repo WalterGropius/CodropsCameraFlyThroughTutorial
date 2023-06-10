@@ -4,6 +4,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import { Loader } from "@react-three/drei";
 
  //studio.extend(extension);
  //studio.initialize();
@@ -13,5 +14,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Suspense fallback={null}>
       <App />
     </Suspense>
+    
   </React.StrictMode>
 );

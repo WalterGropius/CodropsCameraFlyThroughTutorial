@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Gltf, ScrollControls, useScroll, PresentationControls, Environment, EnvironmentMap, Loader } from "@react-three/drei";
+import { Gltf, ScrollControls, useScroll, PresentationControls, Environment, EnvironmentMap, Loader ,AccumulativeShadows,RandomizedLight} from "@react-three/drei";
 import { getProject, val } from "@theatre/core";
 import theatreState from "./theatreState.json";
 
@@ -43,7 +43,7 @@ function Scene() {
       lastScrollOffset = scroll.offset;
     }});
 
-  const bgColor = "#84a4f4";
+  const bgColor = "#8883b3";
 
   return (
     <>

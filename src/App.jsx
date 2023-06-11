@@ -50,7 +50,7 @@ function Scene() {
       <color attach="background" args={[bgColor]} />
       <fog attach="fog" color={bgColor} near={-10} far={3} />
       <ambientLight intensity={0.1} />
-    
+    <Environment background={false} files="dawn.hdr" />
       <PresentationControls
       enabled={true} // the controls can be disabled by setting this to false
       global={false} // Spin globally or by dragging the model

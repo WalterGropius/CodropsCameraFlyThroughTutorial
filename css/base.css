@@ -1,9 +1,9 @@
 
 
 :root {
-  font-size: 42px;
+  font-size: 2vh;
   --color-text: #27003d;
-  --color-bg: #84a4f4;
+  --color-bg: #8883b3;
   --color-link: #fff;
   --color-link-hover: #fff;
 }
@@ -59,14 +59,13 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--color-link);
-  outline: none;
+  transition: font-size 0.3s ease, font-weight 0.3s ease;  
   cursor: pointer;
 }
 
 a:hover {
-  color: var(--color-link-hover);
-  outline: none;
+  font-weight: 900;
+  font-size: 2.5vh;
 }
 
 /* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
@@ -113,12 +112,12 @@ a:focus-visible {
   position: fixed;
   width: 100%;
   display: flex;
-  font-weight: 900;
+  font-weight: 100;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
   backdrop-filter: blur(2px); /* Blur effect */
-  padding: 10px 20px;
+  padding: 11px 20px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
 }
 
@@ -145,10 +144,12 @@ a:focus-visible {
 .frame__title {
   grid-area: title;
   display: flex;
+  font-weight: 900;
 }
 
 .frame__title-main {
-  font-size: 42px;
+  font-weight: 900;
+  font-size: 2.5vh;
 }
 
 
@@ -158,11 +159,11 @@ a:focus-visible {
   width: 800px;
   list-style: none;
   margin: 0;
-  margin-right: 60px;
+  margin-right: 5vh;
   padding: 4;
 }
 .link-menu li a {
   text-decoration: none;
   color:var(--color-text);
-  font-size: 42px;
 }
+

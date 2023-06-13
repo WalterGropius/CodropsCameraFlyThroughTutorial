@@ -44,6 +44,7 @@ function Scene() {
     }});
 
   const bgColor = "#8883b3";
+        
 
   return (
     <>

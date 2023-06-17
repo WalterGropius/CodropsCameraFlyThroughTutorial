@@ -11,9 +11,6 @@ import { Loader } from "@react-three/drei";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Suspense fallback={null}>
       <App />
-    </Suspense>
-    
   </React.StrictMode>
 );

@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Gltf, ScrollControls, useScroll, PresentationControls, Environment, EnvironmentMap, Loader ,AccumulativeShadows,RandomizedLight} from "@react-three/drei";
+import { Gltf, ScrollControls, useScroll, PresentationControls, Environment,Text3D, EnvironmentMap, Loader ,AccumulativeShadows,RandomizedLight} from "@react-three/drei";
 import { getProject, val } from "@theatre/core";
 import theatreState from "./theatreState.json";
 
@@ -8,6 +8,7 @@ import {
   PerspectiveCamera,
   useCurrentSheet,
 } from "@theatre/r3f";
+import { Suspense } from "react";
 
 export default function App() {
   const sheet = getProject("Fly Through", { state: theatreState }).sheet(
@@ -18,7 +19,7 @@ export default function App() {
     <Canvas gl={{ preserveDrawingBuffer: true }}>
       <ScrollControls pages={5}>
         <SheetProvider sheet={sheet}>
-          <Scene />
+          <Suspense><Scene /></Suspense>
         </SheetProvider>
       </ScrollControls>
     </Canvas>
@@ -64,15 +65,15 @@ function Scene() {
       azimuth={[-Infinity, Infinity]} // Horizontal limits
       config={{ mass: 1, tension: 170, friction: 26 }} // Spring config
       >
-    <Gltf src="/environment.glb" castShadow receiveShadow />
+        <Gltf src="/environment.glb" castShadow receiveShadow />
       </PresentationControls>
       
       <PerspectiveCamera
         theatreKey="Camera"
         makeDefault
-        position={[0, 0, 0]}
-        fov={90}
-        near={0.1}
+        
+        fov={80}
+        near={0.0001}
         far={70}
       />
     </>

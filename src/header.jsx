@@ -1,19 +1,20 @@
-export default function Header()   
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-{
-    return (
-      <div class="frame" id="frame">
-          <div class="frame__title-main">Ë ZENBAUHAUS</div>
-          <ul class="link-menu">
-            <li><a href="https://zenbau.haus/cv.pdf">about</a></li>
-            <li><a href="https://drive.google.com/file/d/19ugYFHZf502Pc_nG0XCthXDsbeOTfHZ1/view?usp=sharing">reel</a></li>
-            <li><a href="https://illustrious-alyssum-b88.notion.site/Portfolio-selected-works-2016-23-349c9b01dd2d4416847b747a14b908c6">work </a></li>
-            <li><a href="https://zenbau.haus/portfolio.pdf">art </a></li>
-            <li><a href="http://instagram.com/tra5her_sk8">ig </a></li>
-            <li><a href="http://facebook.com/ezbawa">fb</a></li>
-          </ul>
-        </div>
-    );
-  }
+function Header() {
+  return (
+    <div className="frame" id="frame">
+      <div className="frame__title-main"><Link to="/">Ë zenbauhaus</Link></div>
+      <ul className="link-menu">
+        <li><Link to="/about">about</Link></li>
+        <li><Link to="/reel">reel</Link></li>
+        <li><Link to="/work">work</Link></li>
+        <li><Link to="/art">art</Link></li>
+        <li><a href="http://instagram.com/tra5her_sk8">ig</a></li>
+        <li><a href="http://facebook.com/ezbawa">fb</a></li>
+      </ul>
+    </div>
+  );
+}
 
-
+export default Header;

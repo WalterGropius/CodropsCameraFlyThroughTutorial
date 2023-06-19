@@ -1,68 +1,109 @@
-import {
-  Backdrop,
-  Box,
-  Environment,
-  MeshDistortMaterial,
-  MeshTransmissionMaterial,
-  MeshWobbleMaterial,
+import React, { Suspense,useState } from 'react';
+import { 
+  Environment, 
+  Sphere, 
+  Torus, 
+  TorusKnot, 
+  RoundedBox,
+  Text3D,
   OrbitControls,
-  Sphere,
-  Stage
-} from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
-import { useControls } from 'leva'
-import { MeshNormalMaterial } from 'three'
-import { Perf } from 'r3f-perf'
-import { Suspense } from 'react'
+  Billboard
+} from '@react-three/drei';
+import { Canvas, useThree } from '@react-three/fiber';
+import { MeshTransmissionMaterial } from '@react-three/drei';
+
+function CanvasContent() {
+  const [isHovered, setIsHovered] = useState(false);
+  const [shape, setShape] = useState('sphere');
+  const [text, setText] = useState('hello \n\n\ world');
+
+  const handlePointerOver = () => {
+    setIsHovered(true);
+    setText('Click\n\n\ me!');
+  };
+
+  const handlePointerOut = () => {
+    setIsHovered(false);
+    setText('hello \n\n\world');
+  };
+
+  const handleClick = () => {
+    const shapes = ['torus', 'sphere', 'torusknot', 'roundedbox'];
+    setShape(shapes[(shapes.indexOf(shape) + 1) % shapes.length]);
+  };
+
+  const renderShape = () => {
+    const materialProps = {
+      samples: 2,
+      resolution: 8,
+      transmission: 1,
+      roughness: 0.02,
+      thickness: 1.01,
+      ior: 1.42,
+      chromaticAberration: 0.03,
+      distortion: 0.15,
+      temporalDistortion: 0.05,
+      clearcoat: 1,
+      attenuationDistance: 0.5,
+      transmissionSampler: true
+    };
+
+    switch(shape) {
+      case 'torus':
+        return <Torus ><MeshTransmissionMaterial {...materialProps} /></Torus>;
+      case 'torusknot':
+        return <TorusKnot scale={2}><MeshTransmissionMaterial {...materialProps} /></TorusKnot>;
+      case 'roundedbox':
+        return <RoundedBox><MeshTransmissionMaterial {...materialProps} /></RoundedBox>;
+      default:
+        return <Sphere><MeshTransmissionMaterial {...materialProps} /></Sphere>;
+    }
+  }
+
+  return (
+    <>
+      <Environment files={'/flatway.hdr'} background={true} />
+      <ambientLight intensity={0.5} />
+      <pointLight intensity={isHovered ? 2000 : 0.1} />
+
+      <mesh scale={0.7}
+        onClick={handleClick}
+        onPointerOver={handlePointerOver}
+        onPointerOut={handlePointerOut}>
+        {renderShape()}
+      </mesh>
+
+      <Billboard follow={true}
+        lockX={false}
+        lockY={false}
+        lockZ={false}>
+        <Text3D
+          position={[-3, 1, -1]}
+          curveSegments={8}
+          bevelEnabled
+          bevelSize={0.04}
+          bevelThickness={0.1}
+          height={0.05}
+          thickness={0}
+          lineHeight={0.5}
+          letterSpacing={isHovered ? 1 : 0.9}
+          size={isHovered ? 2 : 0.9}
+          font="./zenhand.json">
+          {text}
+          <meshStandardMaterial color={"white"} metalness={1} roughness={0} smooth={1} flatshading={0} />
+        </Text3D>
+      </Billboard>
+    </>
+  );
+}
 
 export default function Home () {
-  /* const config = useControls({
-        meshPhysicalMaterial: false,
-        transmissionSampler: false,
-        backside: false,
-        samples: { value: 10, min: 1, max: 32, step: 1 },
-        resolution: { value: 2048, min: 256, max: 2048, step: 256 },
-        transmission: { value: 1, min: 0, max: 1 },
-        roughness: { value: 0.0, min: 0, max: 1, step: 0.01 },
-        thickness: { value: 3.5, min: 0, max: 10, step: 0.01 },
-        ior: { value: 1.5, min: 1, max: 5, step: 0.01 },
-        chromaticAberration: { value: 0.06, min: 0, max: 1 },
-        anisotropy: { value: 0.1, min: 0, max: 1, step: 0.01 },
-        distortion: { value: 0.0, min: 0, max: 1, step: 0.01 },
-        distortionScale: { value: 0.3, min: 0.01, max: 1, step: 0.01 },
-        temporalDistortion: { value: 0.5, min: 0, max: 1, step: 0.01 },
-        clearcoat: { value: 1, min: 0, max: 1 },
-        attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
-        attenuationColor: '#ffffff',
-        color: '#c9ffa1',
-        bg: '#839681'
-      }) */
   return (
-    <><Suspense fallback={null}>
+    <Suspense fallback={null}>
       <Canvas shadows dpr={[1, 2]} camera={{ fov: 50 }}>
-        <Environment files={'/flatway.hdr'} background={true} />
-        <ambientLight intensity={0.5} />
-        <Sphere scale={0.7}>
-          {' '}
-          <MeshTransmissionMaterial
-            samples={2}
-            resolution={8}
-            transmission={1}
-            roughness={0.02}
-            thickness={1.01}
-            ior={1.42}
-            chromaticAberration={0.03}
-            distortion={0.15}
-            temporalDistortion={0.05}
-            clearcoat={1}
-            attenuationDistance={0.5}
-            transmissionSampler={true}
-          />
-        </Sphere>
-
-        <OrbitControls autoRotate={true} autoRotateSpeed={0.2} />
-         {/* <Perf position='top-left' /> */}
-      </Canvas></Suspense > 
-    </>
-  )
+        <CanvasContent />
+        <OrbitControls autoRotate={true} autoRotateSpeed={0.2} enableZoom={false} maxDistance={10} minDistance={10}/>
+      </Canvas>
+    </Suspense > 
+  );
 }

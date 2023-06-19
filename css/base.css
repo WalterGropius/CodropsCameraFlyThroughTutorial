@@ -2,8 +2,8 @@
 
 :root {
   font-size: 2vh;
-  --color-text: #27003d;
-  --color-bg: #8883b3;
+  --color-text: #e0e0e0;
+  --color-bg: #000000;
   --color-link: #fff;
   --color-link-hover: #fff;
 }
@@ -115,7 +115,7 @@ a:focus-visible {
   font-weight: 100;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  background-color: rgba(59, 59, 59, 0.5); /* Semi-transparent white */
   backdrop-filter: blur(2px); /* Blur effect */
   padding: 11px 20px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
